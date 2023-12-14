@@ -38,6 +38,7 @@ export default function App() {
           colorValue={purple}
           setScore={setPurple}
         />
+
         <BonusSection
           setRedsKnockedOver={setRedsKnockedOver}
           redsKnockedOver={redsKnockedOver}

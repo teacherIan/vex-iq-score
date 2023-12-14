@@ -68,20 +68,18 @@
 }
 
 .bonusSection {
-  margin-top: 40px;
+  margin-top: 80px;
   display: relative;
   width: 50vw;
-  height: 40svh;
-  /* border: 1px solid black; */
-  border-radius: 200px;
+  height: 35svh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: calc(5vw + 5vh + 15px);
+  font-size: calc(3vw + 3vh + 15px);
   flex-direction: column;
   color: #13284B;
   z-index: 1000;
-  padding: 10px;
+  padding-top: 10px;
 
 
 
@@ -99,13 +97,14 @@
 .bonus {
   display: flex;
   font-size: calc(1vw + 1vh + 5px);
-  padding: 10px;
-  justify-content: center;
+  padding: 0;
+  justify-content: space-between;
   align-items: center;
+  width: 80%;
 }
 
 .label {
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 .viewScore {

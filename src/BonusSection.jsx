@@ -9,6 +9,7 @@ export default function BonusSection(props) {
 
   return (
     <div className="bonusSection">
+      Bonus
       <Bonus
         pt={props.redsKnockedOver}
         setPt={props.setRedsKnockedOver}
