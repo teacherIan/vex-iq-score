@@ -1,5 +1,6 @@
 import './index.css';
 import { FaCaretUp, FaCaretDown } from 'react-icons/fa6';
+import { useSpring, animated } from '@react-spring/web';
 
 export default function PointSection(props) {
   return (
@@ -12,7 +13,9 @@ export default function PointSection(props) {
         />
         {props.colorValue}
         <FaCaretDown
-          onClick={() => props.setScore(props.colorValue - 1)}
+          onClick={() =>
+            props.colorValue > 0 ? props.setScore(props.colorValue - 1) : null
+          }
           className="decrease"
         />
       </div>

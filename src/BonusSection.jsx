@@ -3,10 +3,6 @@ import './index.css';
 import Bonus from './Bonus.jsx';
 
 export default function BonusSection(props) {
-  function handleReds() {
-    console.log('Clicked');
-  }
-
   return (
     <div className="bonusSection">
       Bonus

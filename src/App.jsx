@@ -24,15 +24,15 @@ export default function App() {
     if (siloTwo) bonus += 10;
     if (siloThree) bonus += 10;
 
-    setTotal(red * 7 + green * 3 + purple * 5 + bonus);
+    setTotal(red * 20 + green * 3 + purple * 5 + bonus);
   }, [green, red, purple, redsKnockedOver, siloOne, siloTwo, siloThree]);
 
   return (
     <>
       <div className="container">
-        <StartBlock />
         <PointSection img={greenBlock} colorValue={green} setScore={setGreen} />
         <PointSection img={redBlock} colorValue={red} setScore={setRed} />
+        <StartBlock total={total} />
         <PointSection
           img={purpleBlock}
           colorValue={purple}
@@ -50,8 +50,6 @@ export default function App() {
           setSiloThree={setSiloThree}
         />
       </div>
-
-      <div className="viewScore">{total}</div>
     </>
   );
 }
