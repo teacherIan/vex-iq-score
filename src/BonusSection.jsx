@@ -7,16 +7,34 @@ export default function BonusSection(props) {
     <div className="bonusSection">
       Bonus
       <Bonus
-        pt={props.redsKnockedOver}
-        setPt={props.setRedsKnockedOver}
-        text={'Knocked Over Reds?'}
+        reds={true}
+        redsKnockedOver={props.redsKnockedOver}
+        setRedsKnockedOver={props.setRedsKnockedOver}
+        text={'Knock Over Bonus'}
       />
-      <Bonus pt={props.siloOne} setPt={props.setSiloOne} text={'Silo I'} />
-      <Bonus pt={props.siloTwo} setPt={props.setSiloTwo} text={'Silo II'} />
       <Bonus
+        reds={false}
+        pt={props.siloOne}
+        setPt={props.setSiloOne}
+        text={'Silo I Fill Bonus'}
+      />
+      <Bonus
+        reds={false}
+        pt={props.siloTwo}
+        setPt={props.setSiloTwo}
+        text={'Silo II Fill Bonus'}
+      />
+      <Bonus
+        reds={false}
         pt={props.siloThree}
         setPt={props.setSiloThree}
-        text={'Silo III'}
+        text={'Silo III Fill Bonus'}
+      />
+      <Bonus
+        reds={false}
+        pt={props.parked}
+        setPt={props.setParked}
+        text={'Parked Bonus'}
       />
     </div>
   );
