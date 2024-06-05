@@ -16,7 +16,7 @@
   align-items: center;
   font-size: calc(5vw + 5vh + 15px);
   flex-direction: column;
-  color: #13284B;
+  color: black;
   z-index: 1000;
 
 
@@ -69,15 +69,16 @@
   align-items: center;
   font-size: calc(3vw + 3vh + 15px);
   flex-direction: column;
-  color: #13284B;
+  color: black;
   z-index: 1000;
   padding-top: 10px;
 }
 
 .checkBox {
-  display: inline-block;
-  accent-color: #13284B;
-  width: calc(1vw + 1vh + 10px);
+
+
+  accent-color: #bad8ed;
+  width: calc(2vw + 2vh + 20px);
   height: calc(1vw + 1vh + 10px);
   cursor: pointer;
 
@@ -95,7 +96,7 @@
 .startBlock {
   position: relative;
   width: 100%;
-  background-color: #2c66cc;
+  background-color: #0075c9;
   height: 20svh;
 }
 
