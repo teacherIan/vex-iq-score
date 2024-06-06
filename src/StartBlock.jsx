@@ -8,7 +8,7 @@ export default function StartBlock(props) {
   const [firstUse, setFirstUse] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [showEnd, setShowEnd] = useState(false);
-  const [timer, setTimer] = useState(5);
+  const [timer, setTimer] = useState(120);
   const [started, setStarted] = useState(false);
   const [startSpring, startAPI] = useSpring(() => ({
     from: { top: '-100%' },
