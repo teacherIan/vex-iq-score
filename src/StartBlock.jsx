@@ -1,6 +1,8 @@
+import { collection, addDoc } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import AddToDB from './AddToDB';
+import { db } from './DB';
 
 export default function StartBlock(props) {
   const [firstUse, setFirstUse] = useState(false);
@@ -100,8 +102,17 @@ export default function StartBlock(props) {
     };
   }, [timer, started]);
 
-  function saveData() {
-    setShowEnd(true);
+  async function saveData() {
+    try {
+      const docRef = await addDoc(collection(db, 'testCollection'), {
+        name: inputValue,
+        total: props.total,
+      });
+      console.log('Document written with ID: ', docRef.id);
+      setShowEnd(true);
+    } catch (e) {
+      console.error('Error adding document: ', e);
+    }
   }
 
   const formattedTime = new Date(timer * 1000)
