@@ -15,7 +15,7 @@ export default function StartBlock(props) {
   }));
 
   const [timeSpring, timeAPI] = useSpring(() => ({
-    from: { top: '-100%', left: '25%' },
+    from: { top: '-100%', left: '20%' },
     config: {
       tension: 180,
       friction: 20,
@@ -33,7 +33,7 @@ export default function StartBlock(props) {
   }));
 
   const [nameSpring, nameAPI] = useSpring(() => ({
-    from: { top: '-200%', left: '25%' },
+    from: { top: '-200%', left: '20%' },
     config: {
       tension: 180,
       friction: 20,
