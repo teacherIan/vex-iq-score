@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useSpring, animated } from '@react-spring/web';
+import AddToDB from './AddToDB';
 
 export default function StartBlock(props) {
+  const [inputValue, setInputValue] = useState('');
+  const [showEnd, setShowEnd] = useState(false);
   const [timer, setTimer] = useState(5);
   const [started, setStarted] = useState(false);
   const [startSpring, startAPI] = useSpring(() => ({
@@ -24,7 +27,7 @@ export default function StartBlock(props) {
   }));
 
   const [scoreSpring, scoreAPI] = useSpring(() => ({
-    from: { top: '-100%', left: '75%' },
+    from: { top: '-100%', left: '80%' },
     config: {
       tension: 180,
       friction: 20,
@@ -49,6 +52,10 @@ export default function StartBlock(props) {
       mass: 3,
     },
   }));
+
+  function updateInputValue(e) {
+    setInputValue(e.target.value);
+  }
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -88,6 +95,10 @@ export default function StartBlock(props) {
       clearTimeout(timeout);
     };
   }, [timer, started]);
+
+  function saveData() {
+    setShowEnd(true);
+  }
 
   const formattedTime = new Date(timer * 1000)
     .toLocaleTimeString('en-US', {
@@ -170,7 +181,7 @@ export default function StartBlock(props) {
         <label className="textLabel">
           NAME:
           <br />
-          <input type="text" name="yourInputName" />
+          <input type="text" name="yourInputName" onChange={updateInputValue} />
         </label>
       </animated.div>
       <animated.div
@@ -178,9 +189,11 @@ export default function StartBlock(props) {
           ...saveSpring,
         }}
         className="store"
+        onClick={() => saveData()}
       >
         SAVE
       </animated.div>
+      {showEnd ? <AddToDB name={inputValue} total={props.total} /> : null}
     </div>
   );
 }

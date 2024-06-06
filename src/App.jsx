@@ -6,6 +6,7 @@ import greenBlock from './assets/green.png';
 import purpleBlock from './assets/purple.png';
 import redBlock from './assets/red.png';
 import BonusSection from './BonusSection';
+import AddToDB from './AddToDB';
 
 export default function App() {
   const [green, setGreen] = useState(0);
