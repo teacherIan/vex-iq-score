@@ -2,27 +2,85 @@ import { useState, useEffect } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 
 export default function StartBlock(props) {
-  const [timer, setTimer] = useState(120);
+  const [timer, setTimer] = useState(5);
   const [started, setStarted] = useState(false);
   const [startSpring, startAPI] = useSpring(() => ({
     from: { top: '-100%' },
     to: { top: '50%' },
+    config: {
+      tension: 180,
+      friction: 20,
+      mass: 2,
+    },
   }));
 
   const [timeSpring, timeAPI] = useSpring(() => ({
     from: { top: '-100%', left: '25%' },
+    config: {
+      tension: 180,
+      friction: 20,
+      mass: 3,
+    },
   }));
 
   const [scoreSpring, scoreAPI] = useSpring(() => ({
     from: { top: '-100%', left: '75%' },
+    config: {
+      tension: 180,
+      friction: 20,
+      mass: 3,
+    },
   }));
 
-  const [offset, setOffset] = useState('  ');
+  const [nameSpring, nameAPI] = useSpring(() => ({
+    from: { top: '-200%', left: '25%' },
+    config: {
+      tension: 180,
+      friction: 20,
+      mass: 3,
+    },
+  }));
+
+  const [saveSpring, saveAPI] = useSpring(() => ({
+    from: { top: '-200%', left: '50%' },
+    config: {
+      tension: 180,
+      friction: 20,
+      mass: 3,
+    },
+  }));
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (timer > 0 && started) {
         setTimer(timer - 1);
+      }
+      if (timer == 0) {
+        console.log('Timeout');
+        timeAPI.start({
+          from: {
+            top: '50%',
+          },
+          to: {
+            top: '200%',
+          },
+        });
+        nameAPI.start({
+          from: {
+            top: '-200%',
+          },
+          to: {
+            top: '50%',
+          },
+        });
+        saveAPI.start({
+          from: {
+            top: '-200%',
+          },
+          to: {
+            top: '50%',
+          },
+        });
       }
     }, 1000);
 
@@ -102,6 +160,26 @@ export default function StartBlock(props) {
         TIME:
         <br />
         {formattedTime}
+      </animated.div>
+      <animated.div
+        style={{
+          ...nameSpring,
+        }}
+        className="input"
+      >
+        <label className="textLabel">
+          NAME:
+          <br />
+          <input type="text" name="yourInputName" />
+        </label>
+      </animated.div>
+      <animated.div
+        style={{
+          ...saveSpring,
+        }}
+        className="store"
+      >
+        SAVE
       </animated.div>
     </div>
   );
