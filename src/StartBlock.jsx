@@ -3,6 +3,7 @@ import { useSpring, animated } from '@react-spring/web';
 import AddToDB from './AddToDB';
 
 export default function StartBlock(props) {
+  const [firstUse, setFirstUse] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [showEnd, setShowEnd] = useState(false);
   const [timer, setTimer] = useState(5);
@@ -54,6 +55,17 @@ export default function StartBlock(props) {
   }));
 
   function updateInputValue(e) {
+    if (!firstUse) {
+      saveAPI.start({
+        from: {
+          top: '-200%',
+        },
+        to: {
+          top: '50%',
+        },
+      });
+    }
+    setFirstUse(true);
     setInputValue(e.target.value);
   }
 
@@ -73,14 +85,6 @@ export default function StartBlock(props) {
           },
         });
         nameAPI.start({
-          from: {
-            top: '-200%',
-          },
-          to: {
-            top: '50%',
-          },
-        });
-        saveAPI.start({
           from: {
             top: '-200%',
           },
