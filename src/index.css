@@ -29,6 +29,7 @@ input {
   border: none;
   font-size: var(--fontSizeXS);
   color: #0075c9;
+  touch-action: manipulation;
 }
 
 .pointSection {
