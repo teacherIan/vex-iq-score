@@ -13,6 +13,7 @@
     --fontSizeS: calc(1.2vw + 1.2vh + 4px);
     --fontSize: calc(1.4vw + 1.4vh + 5px);
     --fontSizeL: calc(1.5vw + 1.5vh + 7px);
+    --fontSizeXL: calc(2vw + 2vh + 10px);
 
   }
 }
